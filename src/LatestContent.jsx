@@ -44,7 +44,9 @@ const LatestContent = () => {
     if (!apiKey) return;
     setLoading(true);
 
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults16`)
+   fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults6`)
+
+
       .then((res) => res.json())
       .then((data) => {
         if (data.items) {
@@ -140,7 +142,8 @@ const LatestContent = () => {
             if (contentWrapperRef.current) {
               contentWrapperRef.current.style.transform = 'translateX(0)';
             }
-          }}      ref={contentWrapperRef}
+          }}   
+             ref={contentWrapperRef}
     
           
         >

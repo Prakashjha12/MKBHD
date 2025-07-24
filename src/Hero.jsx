@@ -164,13 +164,13 @@ const Hero = () => {
     
 
       {/* Heading */}
-      <div className="relative z-10 w-full max-w-3xl text-center mb-6">
+      <div className="relative z-10 w-full max-w-6xl text-center mb-6">
         <BlurText
           text="Quality Tech Videos Crisp Merchandise"
           delay={150}
           animateBy="words"
           direction="top"
-          className="text-white text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg"
+          className="text-white text-4xl md:text-6xl font-bold tracking-tight drop-shadow-lg"
         />
       </div>
 

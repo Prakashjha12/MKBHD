@@ -13,8 +13,7 @@ const Nav = ({ cart }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Handles smooth scrolling for hash links if on homepage,
-  // otherwise navigates to homepage with hash.
+
   const handleAboutClick = (e, to) => {
     if (location.pathname === "/") {
       e.preventDefault();
@@ -44,10 +43,10 @@ const Nav = ({ cart }) => {
           className="cursor-pointer focus:outline-none"
         >
           <GlitchText
-            speed={1}
+            speed={3}
             enableShadows={true}
             enableOnHover={true}
-            className="text-white text-base sm:text-lg md:text-xl font-bold"
+            className="text-white text-base sm:text-lg md:text-sm font-bold"
           >
             MKBHD
           </GlitchText>
