@@ -1,0 +1,41 @@
+.glitch-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 40vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glitch-text {
+  font-size: 8rem;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: max-content;
+}
+
+.base {
+  color: #fbfbfb;
+  z-index: 1;
+}
+
+.glitch1 {
+  color: #e5202b;
+  opacity: 0.6;
+  mix-blend-mode: lighten;
+  text-shadow: -2px 0 #fb121e;
+  z-index: 2;
+}
+
+.glitch2 {
+  color: #00ffff;
+  opacity: 0.6;
+  mix-blend-mode: lighten;
+  text-shadow: 2px 0 #0affff;
+  z-index: 3;
+}
