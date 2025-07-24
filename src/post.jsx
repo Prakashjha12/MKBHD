@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
+import MagicBento from "./MagicBento";
 
 // Skeleton Loader Component
 const SkeletonCard = () => (
@@ -11,60 +12,45 @@ const SkeletonCard = () => (
   </div>
 );
 
-// Community Connect Page
-const fetchCommunityPosts = async () => {
-  // Replace with your real API or CMS fetch (here is a dummy placeholder)
-  // Example: fetch('https://api.yoursite.com/community').then(r => r.json())
-  return [
-    {
-      id: 1,
-      user: "TechieAnsh",
-      avatar: "https://randomuser.me/api/portraits/men/73.jpg",
-      content: "Built my dream setup inspired by #MKBHD! 🔥 Loving the matte black theme.",
-      media: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?fit=crop&w=400&q=80",
-      date: "2025-07-20"
-    },
-    {
-      id: 2,
-      user: "Priya Builds",
-      avatar: "https://randomuser.me/api/portraits/women/65.jpg",
-      content: "Just got the MKBHD hoodie. Quality is on another level! Thanks for the fast delivery.",
-      media: null,
-      date: "2025-07-18"
-    },
-    {
-      id: 3,
-      user: "Arjun Codes",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-      content: "Community AMA was 🔥 MKBHD answered my question about video gear! Thanks for the insights.",
-      media: null,
-      date: "2025-07-15"
-    },
-    {
-      id: 4,
-      user: "Samaira Sharma",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-      content: "Inspired to start my own channel after binging the MKBHD podcast. Let’s go! 🚀",
-      media: "https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?fit=crop&w=400&q=80",
-      date: "2025-07-12"
-    }
-  ];
-};
+// Dummy fetch function for posts
+const fetchCommunityPosts = async () => [
+  {
+    id: 1,
+    user: "TechieAnsh",
+    avatar: "https://randomuser.me/api/portraits/men/73.jpg",
+    content: "Built my dream setup inspired by #MKBHD! 🔥 Loving the matte black theme.",
+    media: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?fit=crop&w=400&q=80",
+    date: "2025-07-20",
+  },
+  {
+    id: 2,
+    user: "Priya Builds",
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+    content: "Just got the MKBHD hoodie. Quality is on another level! Thanks for the fast delivery.",
+    media: null,
+    date: "2025-07-18",
+  },
+  {
+    id: 3,
+    user: "Arjun Codes",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    content: "Community AMA was 🔥 MKBHD answered my question about video gear! Thanks for the insights.",
+    media: null,
+    date: "2025-07-15",
+  },
+  {
+    id: 4,
+    user: "Samaira Sharma",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    content: "Inspired to start my own channel after binging the MKBHD podcast. Let’s go! 🚀",
+    media: "https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?fit=crop&w=400&q=80",
+    date: "2025-07-12",
+  },
+];
 
 const CommunityConnect = () => {
   const [communityPosts, setCommunityPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // GSAP animation on cards load
-  useEffect(() => {
-    if (!loading && communityPosts.length) {
-      gsap.fromTo(
-        ".community-card",
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.12, duration: 0.7, ease: "power3.out" }
-      );
-    }
-  }, [loading, communityPosts]);
 
   useEffect(() => {
     let mounted = true;
@@ -73,26 +59,48 @@ const CommunityConnect = () => {
         if (mounted) {
           setCommunityPosts(posts);
           setLoading(false);
+          gsap.fromTo(
+            ".community-card",
+            { y: 40, opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.12, duration: 0.7, ease: "power3.out" }
+          );
         }
-      }, 1800); // simulate loading delay
+      }, 1800);
     });
-    return () => {
-      mounted = false;
-    };
+    return () => { mounted = false; };
   }, []);
 
   return (
-    <div className="min-h-screen bg-black py-16 px-6">
-      <div className="max-w-4xl mx-auto">
+    <div className="relative min-h-screen bg-black overflow-hidden">
+      {/* MagicBento background */}
+      <div
+        className="absolute inset-0 -z-10"
+        aria-hidden="true"
+      >
+        <MagicBento
+          textAutoHide={true}
+          enableStars={true}
+          enableSpotlight={true}
+          enableBorderGlow={true}
+          enableTilt={true}
+          enableMagnetism={true}
+          clickEffect={true}
+          spotlightRadius={300}
+          particleCount={12}
+          glowColor="132, 0, 255"
+        />
+      </div>
+
+      <div className="max-w-4xl mx-auto relative z-10 py-16 px-6">
         <h1 className="text-4xl font-extrabold text-[#E5202B] text-center mb-6 tracking-tight drop-shadow-xl">
           MKBHD Community Connect
         </h1>
         <p className="text-gray-300 text-center max-w-lg mx-auto mb-14">
-          Real stories, setups & reviews from the #MKBHD family. Be featured: post and tag <span className="text-[#E5202B]">@MKBHD</span> or #MKBHD in your content!
+          Real stories, setups & reviews from the #MKBHD family. Be featured: post and tag <span className="text-[#E5202B]">@MKBHD</span> or <span className="text-[#E5202B]">#MKBHD</span> in your content!
         </p>
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {Array.from({ length: 4 }).map((_, idx) => (
+            {Array(4).fill(null).map((_, idx) => (
               <SkeletonCard key={idx} />
             ))}
           </div>
@@ -100,15 +108,11 @@ const CommunityConnect = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {communityPosts.map((post) => (
               <div
-                className="community-card bg-gray-900 rounded-xl p-6 flex flex-col shadow-xl transition-transform transform hover:scale-[1.025] hover:shadow-2xl"
                 key={post.id}
+                className="community-card bg-gray-900 rounded-xl p-6 flex flex-col shadow-xl transition-transform transform hover:scale-[1.025] hover:shadow-2xl"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <img
-                    src={post.avatar}
-                    className="w-12 h-12 rounded-full border-2 border-[#E5202B]"
-                    alt={post.user}
-                  />
+                  <img src={post.avatar} alt={post.user} className="w-12 h-12 rounded-full border-2 border-[#E5202B]" />
                   <div>
                     <div className="font-semibold text-white">{post.user}</div>
                     <div className="text-gray-400 text-xs">{new Date(post.date).toLocaleDateString()}</div>
