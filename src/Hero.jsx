@@ -170,7 +170,7 @@ const Hero = () => {
           delay={150}
           animateBy="words"
           direction="top"
-          className="text-white text-4xl md:text-6xl font-bold tracking-tight drop-shadow-lg"
+          className="text-white text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg"
         />
       </div>
 

@@ -1,11 +1,13 @@
 /* Glitch effect upgrades - subtle version */
 .glitch-red {
-  filter: drop-shadow(-2px 0 6px #ff004c) blur(0.5px) brightness(1.08) contrast(1.08);
+  filter: drop-shadow(-2px 0 6px #ff004c) blur(0.5px) brightness(1.08)
+    contrast(1.08);
   mix-blend-mode: lighten;
   opacity: 0.35;
 }
 .glitch-blue {
-  filter: drop-shadow(2px 0 6px #00fff9) blur(0.5px) brightness(1.08) contrast(1.08);
+  filter: drop-shadow(2px 0 6px #00fff9) blur(0.5px) brightness(1.08)
+    contrast(1.08);
   mix-blend-mode: lighten;
   opacity: 0.35;
 }
@@ -23,14 +25,17 @@
 }
 
 /* Font Pairing Upgrade */
-.hero-title, .hero-headline, .glitch-text {
-  font-family: 'Space Grotesk', sans-serif;
+.hero-title,
+.hero-headline,
+.glitch-text {
+  font-family: "Space Grotesk", sans-serif;
 }
 .hero-headline {
   font-weight: 900;
 }
-.hero-body, .hero-subtext {
-  font-family: 'Inter', sans-serif;
+.hero-body,
+.hero-subtext {
+  font-family: "Inter", sans-serif;
   font-weight: 400;
 }
 
@@ -53,4 +58,3 @@
     max-width: 600px;
   }
 }
-
