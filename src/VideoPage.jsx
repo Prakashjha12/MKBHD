@@ -10,7 +10,7 @@ const VideoPage = () => {
     const fetchLatestVideo = async () => {
       try {
   
-     const apiUrl = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${apiKey}`;
+     const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1`;
         const res = await fetch(apiUrl);
         const data = await res.json();
         const latest = data.items.find(item => item.id.kind === "youtube#video");
