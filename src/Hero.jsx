@@ -116,7 +116,7 @@ const Hero = () => {
 
       {/* Glitch Image on top */}
       <div className="relative z-10 w-full max-w-3xl flex justify-center mb-10">
-        <div className="relative w-full aspect-[16/9] max-w-xl rounded-3xl overflow-hidden shadow-lg">
+        <div className="relative w-full  aspect-[16/9] max-w-xl rounded-3xl overflow-hidden shadow-lg">
   <img
     ref={glitchImg1}
     src={Logo}
